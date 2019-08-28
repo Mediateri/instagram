@@ -1,0 +1,54 @@
+
+<div class="card">
+  <div class="card-header">Form</div>
+  <div class="card-body"><%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control mb-2 mr-sm-2" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control mb-2 mr-sm-2" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "form-control mb-2 mr-sm-2" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :confirmation %>
+      <%= form.password_field :confirmation, class: "form-control mb-2 mr-sm-2" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :Birth_date %>
+      <%= form.date_select :dob %>
+    </div>
+  
+    <div class="field">
+      <p><%= form.label :gender %>
+      <%= form.radio_button :gender, 'M' %> Male  <%= form.radio_button :gender, 'F' %> Female<br />
+      </p>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary mb-2' %>
+    </div>
+    </div>
+  <% end %>
+  </div> 
+</div>

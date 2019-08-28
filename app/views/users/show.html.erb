@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<p>
+<%= image_tag @user.profile.image.url, class: "rounded-circle", size: "50x50" unless @user.profile.image.url.blank? %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<p>
+  <strong>Dob:</strong>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', posts_path %>
