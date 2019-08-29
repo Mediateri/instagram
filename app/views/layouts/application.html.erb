@@ -34,7 +34,8 @@
   </li>
 
   <% else %>
-  </li>
+  <li class="nav-item">
+  <%= link_to "Login page", new_session_path, class: "nav-link" %> 
   </li>
   <li class="nav-item">
   <%= link_to "Sign up", new_user_path, class: "nav-link" %>
