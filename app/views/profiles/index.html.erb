@@ -11,15 +11,17 @@
   </thead>
 
   <tbody>
+  <% if logged_in? %>
     <% @profiles.each do |profile| %>
       <tr>
+      <% if current_user.id == profile.user_id %>
         <td><%= image_tag profile.image.url, size: "100x100" unless profile.image.url.blank? %></td>
         <td><%= link_to 'delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
+    <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'back', posts_path %>
