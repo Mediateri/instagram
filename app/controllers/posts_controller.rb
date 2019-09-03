@@ -10,8 +10,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
-    
+  def show  
     @favorite = current_user.favorites.find_by(post_id: @post.id)
   end
 

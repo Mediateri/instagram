@@ -13,7 +13,7 @@
   <% if logged_in? %>
     <% @favorites.each do |profile| %>
       <tr>
-      <% if current_user.id == profile.user_id %>
+      <% if current_user.id == profile.user_id %>  
         <td><%= image_tag profile.post.image.url, size: "100x100" unless profile.post.image.url.blank? %></td>
       </tr>
     <% end %>

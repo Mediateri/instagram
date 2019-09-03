@@ -9,11 +9,14 @@
   <strong>Image:</strong>
   <%= image_tag @post.image.url, size: "100x100" unless @post.image.url.blank? %>
 </p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
+<% unless @post.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'Cancel favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <p>
+    <%= link_to 'Make it a favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %></p>
+  <% end %>
+<% end %>
+<br>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
